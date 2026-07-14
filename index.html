@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FFD93D">
+  <meta name="description" content="Interactive Web Analytics learning roadmap with notes, evidence screenshots, offline progress tracking, and optional GitHub sync.">
+  <title>Web Analytics Roadmap Tracker</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./assets/icon-192.png">
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="app-frame">
+    <header class="topbar">
+      <button class="icon-button mobile-only" id="menuButton" aria-label="Open navigation">☰</button>
+      <button class="brand" data-nav="dashboard" aria-label="Go to dashboard">
+        <span class="brand-mark">WA</span>
+        <span class="brand-copy"><strong>ROADMAP</strong><small>LEARN • BUILD • PROVE</small></span>
+      </button>
+      <div class="topbar-actions">
+        <div class="progress-chip" aria-label="Overall progress"><span id="headerProgress">0%</span><small>COMPLETE</small></div>
+        <button class="button button-yellow" id="quickSyncButton">SYNC</button>
+      </div>
+    </header>
+
+    <div class="shell">
+      <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+        <nav id="mainNav">
+          <button class="nav-item active" data-nav="dashboard"><span>01</span> Dashboard</button>
+          <button class="nav-item" data-nav="roadmap"><span>02</span> Roadmap</button>
+          <button class="nav-item" data-nav="projects"><span>03</span> Portfolio Projects</button>
+          <button class="nav-item" data-nav="plans"><span>04</span> Study Plans</button>
+          <button class="nav-item" data-nav="reviews"><span>05</span> Reviews & Job Prep</button>
+          <button class="nav-item" data-nav="resources"><span>06</span> Resources</button>
+          <button class="nav-item" data-nav="pdf"><span>07</span> Original PDF</button>
+          <button class="nav-item" data-nav="settings"><span>08</span> GitHub & Data</button>
+        </nav>
+        <div class="sidebar-card">
+          <strong>PORTFOLIO RULE</strong>
+          <p>A certificate supports your claim. A working implementation, analysis, and recommendation proves it.</p>
+        </div>
+      </aside>
+      <div class="sidebar-scrim" id="sidebarScrim"></div>
+
+      <main id="main-content" tabindex="-1">
+        <div id="content" aria-live="polite"></div>
+      </main>
+    </div>
+  </div>
+
+  <dialog class="workspace-dialog" id="workspaceDialog">
+    <form method="dialog" class="dialog-shell" id="workspaceForm">
+      <header class="dialog-header">
+        <div>
+          <span class="eyebrow" id="workspaceContext">TASK WORKSPACE</span>
+          <h2 id="workspaceTitle">Task</h2>
+        </div>
+        <button class="icon-button" value="cancel" aria-label="Close workspace">✕</button>
+      </header>
+      <div class="dialog-body">
+        <div class="workspace-grid">
+          <section>
+            <label class="field-label">Evidence target</label>
+            <div class="evidence-target" id="workspaceEvidence">Evidence</div>
+
+            <label class="field-label">Evidence stage</label>
+            <div class="stage-picker" id="stagePicker">
+              <button type="button" data-stage="KNOW">KNOW</button>
+              <button type="button" data-stage="DO">DO</button>
+              <button type="button" data-stage="SHOW">SHOW</button>
+              <button type="button" data-stage="TEACH">TEACH</button>
+            </div>
+
+            <label class="field-label" for="reviewDate">Review date</label>
+            <input class="text-input" id="reviewDate" type="date">
+
+            <label class="field-label" for="taskNotes">Notes</label>
+            <textarea class="notes-input" id="taskNotes" rows="12" placeholder="Write what you learned, what broke, how you tested it, and the decision this evidence supports..."></textarea>
+            <p class="autosave-status" id="autosaveStatus">Saved locally.</p>
+          </section>
+
+          <section>
+            <label class="field-label">Screenshots / evidence</label>
+            <div class="drop-zone" id="dropZone" tabindex="0">
+              <strong>DROP, PASTE, OR CHOOSE SCREENSHOTS</strong>
+              <span>PNG, JPG, WEBP — stored locally first, then committed to GitHub when you sync.</span>
+              <input id="screenshotInput" type="file" accept="image/png,image/jpeg,image/webp" multiple hidden>
+              <button type="button" class="button button-violet" id="chooseScreenshotButton">CHOOSE FILES</button>
+            </div>
+            <div class="screenshot-gallery" id="screenshotGallery"></div>
+          </section>
+        </div>
+      </div>
+      <footer class="dialog-footer">
+        <button type="button" class="button button-white" id="markTaskButton">MARK COMPLETE</button>
+        <button type="button" class="button button-red" id="saveAndSyncTaskButton">SAVE & SYNC</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <div class="toast-region" id="toastRegion" aria-live="assertive"></div>
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

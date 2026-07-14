@@ -1,0 +1,14 @@
+{
+  "name": "Web Analytics Roadmap Tracker",
+  "short_name": "WA Roadmap",
+  "description": "Local-first learning roadmap with notes, screenshot evidence, portfolio tracking, and optional GitHub sync.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FFFDF5",
+  "theme_color": "#FFD93D",
+  "icons": [
+    { "src": "./assets/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "./assets/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
